@@ -1,10 +1,14 @@
 import React from "react";
 
-const Header = () => {
+interface HeaderProps {
+  count: number;
+}
+
+const Header = (props: HeaderProps) => {
   return (
     <div className="header">
       <h1>To-Dos</h1>
-      <h1 className="count">0</h1>
+      <h1 className="count">{props.count}</h1>
     </div>
   );
 };

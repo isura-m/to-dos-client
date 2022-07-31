@@ -1,10 +1,22 @@
 import React from "react";
 import Task from "./Task";
 
-const Content = () => {
+interface Task {
+  task: string;
+  notes: string;
+  _id: string;
+}
+interface ContentProps {
+  tasks: Task[];
+}
+const Content = (props: ContentProps) => {
   return (
     <div>
-      <Task />
+      {" "}
+      {props.tasks.map((task) => {
+        return <Task key={task._id} task={task} />;
+      })}
+      {/* <Task /> */}
     </div>
   );
 };
