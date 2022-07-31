@@ -37,7 +37,7 @@ const Task = (props: TaskProps) => {
   const [taskName, setTaskName] = useState(props.task.task);
   const [taskNotes, setTaskNotes] = useState(props.task.notes);
   const [showModal, setShowModal] = useState(false);
-  const [done, setDone] = useState(props.task.done);
+  const [done, setDone] = useState<boolean>(props.task.done);
 
   useEffect(() => {
     const markAsDone = async () => {
@@ -92,7 +92,7 @@ const Task = (props: TaskProps) => {
       <div className="content">
         <h2 className="task-name">
           <Checkbox
-            // checked={done}
+            checked={done}
             onChange={(e: any) => {
               setDone(e.target.checked);
             }}

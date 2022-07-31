@@ -41,6 +41,8 @@ const Header = (props: HeaderProps) => {
       );
       setShowModal(false);
       props.getTasks();
+      setTaskName("");
+      setTaskNotes("");
     } catch (err) {
       console.log(err);
     }
