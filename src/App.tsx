@@ -6,13 +6,14 @@ import axios from "axios";
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  const getTasks = async () => {
+    const response = await axios.get(
+      (process.env.REACT_APP_SERVER_URL as string) + "/to-dos"
+    );
+    setTasks(response.data.tasks);
+  };
+
   useEffect(() => {
-    const getTasks = async () => {
-      const response = await axios.get(
-        (process.env.REACT_APP_SERVER_URL as string) + "/to-dos"
-      );
-      setTasks(response.data.tasks);
-    };
     getTasks();
   }, []);
 
