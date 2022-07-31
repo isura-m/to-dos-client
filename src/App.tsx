@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
 function App() {
-  return <h1>To-Dos-App</h1>;
+  return (
+    <div>
+      <Header />
+      <Content />
+    </div>
+  );
 }
 
 export default App;
