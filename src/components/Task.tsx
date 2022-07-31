@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Checkbox from "@mui/material/Checkbox";
@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
 
 const style = {
   position: "absolute" as "absolute",
@@ -37,6 +38,23 @@ const Task = (props: TaskProps) => {
   const [showModal, setShowModal] = useState(false);
   const [done, setDone] = useState(props.task.done);
 
+  useEffect(() => {
+    const markAsDone = async () => {
+      try {
+        await axios.put(
+          (process.env.REACT_APP_SERVER_URL as string) +
+            "/to-dos/" +
+            props.task._id +
+            "/done",
+          { done }
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    markAsDone();
+  }, [done]);
+
   const handleInput = (e: any) => {
     console.log(e.currentTarget.textContent);
   };
@@ -45,6 +63,7 @@ const Task = (props: TaskProps) => {
       <div className="content">
         <h2 className="task-name">
           <Checkbox
+            // checked={done}
             onChange={(e: any) => {
               setDone(e.target.checked);
             }}
