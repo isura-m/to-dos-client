@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
 
 const style = {
   position: "absolute" as "absolute",
@@ -21,6 +22,7 @@ const style = {
 
 interface HeaderProps {
   count: number;
+  getTasks: () => Promise<void>;
 }
 
 const Header = (props: HeaderProps) => {
@@ -30,6 +32,20 @@ const Header = (props: HeaderProps) => {
   const handleClick = () => {
     setShowModal(true);
   };
+
+  const handleCreate = async () => {
+    try {
+      await axios.post(
+        (process.env.REACT_APP_SERVER_URL as string) + "/to-dos",
+        { task: taskName, notes: taskNotes, done: false }
+      );
+      setShowModal(false);
+      props.getTasks();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="header">
       <h1>To-Dos</h1>
@@ -64,7 +80,7 @@ const Header = (props: HeaderProps) => {
               value={taskNotes}
             />
           </FormControl>
-          <Button sx={{ mt: 2 }} variant="outlined">
+          <Button sx={{ mt: 2 }} variant="outlined" onClick={handleCreate}>
             Create
           </Button>
         </Box>

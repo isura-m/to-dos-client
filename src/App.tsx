@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      <Header count={tasks.length} />
+      <Header getTasks={getTasks} count={tasks.length} />
       <Content getTasks={getTasks} tasks={tasks} />
     </div>
   );
