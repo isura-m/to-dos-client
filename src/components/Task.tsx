@@ -73,10 +73,22 @@ const Task = (props: TaskProps) => {
               Edit Task
             </Typography>
             <FormControl fullWidth sx={{ mt: 2 }}>
-              <TextField label="Task" value={taskName} />
+              <TextField
+                onChange={(e) => {
+                  setTaskName(e.target.value);
+                }}
+                label="Task"
+                value={taskName}
+              />
             </FormControl>
             <FormControl fullWidth sx={{ mt: 2 }}>
-              <TextField label="Notes" value={taskNotes} />
+              <TextField
+                onChange={(e) => {
+                  setTaskNotes(e.target.value);
+                }}
+                label="Notes"
+                value={taskNotes}
+              />
             </FormControl>
             <Button sx={{ mt: 2 }} color="error" variant="contained">
               Delete
