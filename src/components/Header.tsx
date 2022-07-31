@@ -54,6 +54,7 @@ const Header = (props: HeaderProps) => {
       <h1 className="add">
         <AddCircleIcon onClick={handleClick} fontSize="large" />
       </h1>
+
       <Modal
         open={showModal}
         onClose={() => setShowModal(false)}

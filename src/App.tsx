@@ -5,6 +5,7 @@ import axios from "axios";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [showDoneTasks, setShowDoneTasks] = useState<boolean>(true);
 
   const getTasks = async () => {
     const response = await axios.get(
@@ -20,7 +21,13 @@ function App() {
   return (
     <div>
       <Header getTasks={getTasks} count={tasks.length} />
-      <Content getTasks={getTasks} tasks={tasks} />
+
+      <Content
+        getTasks={getTasks}
+        tasks={tasks}
+        setShowDoneTasks={setShowDoneTasks}
+        showDoneTasks={showDoneTasks}
+      />
     </div>
   );
 }
