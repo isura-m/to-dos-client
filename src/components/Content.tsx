@@ -1,9 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Task from "./Task";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 
 interface Task {
   task: string;
