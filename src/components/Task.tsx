@@ -53,6 +53,7 @@ const Task = (props: TaskProps) => {
             onClick={() => {
               setShowModal(true);
             }}
+            className={done ? "done" : ""}
           >
             {taskName}
           </span>
