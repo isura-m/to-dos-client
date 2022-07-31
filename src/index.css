@@ -36,25 +36,10 @@
   margin: 5px;
 }
 
-.create {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: center;
+.add {
+  margin-left: auto;
 }
 
-.create button {
-  background-color: orangered;
-  color: white;
-  border-radius: 10px;
-  border-style: none;
-  text-align: center;
-  padding: 10px 15px;
-}
-
-.create input {
-  border-style: none;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
+.content .notes {
+  margin-left: 48px;
 }

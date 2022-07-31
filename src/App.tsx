@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
-import Create from "./components/Create";
 import axios from "axios";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
   return (
     <div>
       <Header count={tasks.length} />
-      <Create />
       <Content tasks={tasks} />
     </div>
   );
