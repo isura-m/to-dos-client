@@ -69,6 +69,24 @@ const Task = (props: TaskProps) => {
       console.log(err);
     }
   };
+
+  const handleUpdate = async () => {
+    try {
+      await axios.put(
+        (process.env.REACT_APP_SERVER_URL as string) +
+          "/to-dos/" +
+          props.task._id,
+        {
+          task: taskName,
+          notes: taskNotes,
+        }
+      );
+      setShowModal(false);
+      props.getTasks();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <div className="content">
@@ -129,7 +147,11 @@ const Task = (props: TaskProps) => {
             >
               Delete
             </Button>
-            <Button sx={{ mt: 2, ml: 1 }} variant="outlined">
+            <Button
+              sx={{ mt: 2, ml: 1 }}
+              variant="outlined"
+              onClick={handleUpdate}
+            >
               Update
             </Button>
           </Box>
