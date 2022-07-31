@@ -3,7 +3,7 @@ import Task from "./Task";
 
 const Content = () => {
   return (
-    <div className="content">
+    <div>
       <Task />
     </div>
   );

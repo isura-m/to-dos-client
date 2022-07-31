@@ -23,18 +23,38 @@
 .content {
   max-width: 600px;
   margin: 40px auto;
-  padding: 20px;
-}
-
-.content .task {
-  background: white;
-  border-radius: 7px;
   box-shadow: 0 2px 5px lightgrey;
   padding: 10px;
-  width: auto;
-  margin: 16px;
+  border-radius: 7px;
 }
 
-.content .task h2 {
-  background-color: white;
+.content h2 {
+  margin: 5px;
+}
+
+.content p {
+  margin: 5px;
+}
+
+.create {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.create button {
+  background-color: orangered;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.create input {
+  border-style: none;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
 }
