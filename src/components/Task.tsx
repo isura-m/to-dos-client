@@ -30,6 +30,7 @@ interface TaskDetails {
 }
 interface TaskProps {
   task: TaskDetails;
+  getTasks: () => Promise<void>;
 }
 
 const Task = (props: TaskProps) => {
@@ -55,8 +56,18 @@ const Task = (props: TaskProps) => {
     markAsDone();
   }, [done]);
 
-  const handleInput = (e: any) => {
-    console.log(e.currentTarget.textContent);
+  const handleDelete = async () => {
+    try {
+      await axios.delete(
+        (process.env.REACT_APP_SERVER_URL as string) +
+          "/to-dos/" +
+          props.task._id
+      );
+      setShowModal(false);
+      props.getTasks();
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -110,7 +121,12 @@ const Task = (props: TaskProps) => {
                 value={taskNotes}
               />
             </FormControl>
-            <Button sx={{ mt: 2 }} color="error" variant="contained">
+            <Button
+              sx={{ mt: 2 }}
+              color="error"
+              variant="contained"
+              onClick={handleDelete}
+            >
               Delete
             </Button>
             <Button sx={{ mt: 2, ml: 1 }} variant="outlined">

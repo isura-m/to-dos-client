@@ -13,12 +13,13 @@ interface Task {
 }
 interface ContentProps {
   tasks: Task[];
+  getTasks: () => Promise<void>;
 }
 const Content = (props: ContentProps) => {
   return (
     <div>
       {props.tasks.map((task) => {
-        return <Task key={task._id} task={task} />;
+        return <Task key={task._id} task={task} getTasks={props.getTasks} />;
       })}
     </div>
   );

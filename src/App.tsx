@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <Header count={tasks.length} />
-      <Content tasks={tasks} />
+      <Content getTasks={getTasks} tasks={tasks} />
     </div>
   );
 }
